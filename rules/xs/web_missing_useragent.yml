@@ -10,9 +10,9 @@ logsource:
     category: webserver
 detection:
     selection:
-      c-useragent:
-        - '-' # Web server logs use "-" to denote missing UA
-        #- '' # Sigma guidelines suggest '' for empty value, but how is string matching done in our case?
+        # Web server logs use "-" to denote missing UA. 
+        # Sigma guidelines suggest '' for empty value (used in another rule), but how is string matching done in our case?
+        c-useragent: '-'
     condition: selection
 fields:
     - ClientIP
@@ -21,6 +21,7 @@ fields:
 falsepositives:
     - Unknown
 tags:
-    - attack.t1066 #indicator removal from tools
+    
+    - attack.t1066
     - attack.defense_evasion
 level: high

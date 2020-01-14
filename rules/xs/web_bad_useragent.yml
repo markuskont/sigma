@@ -11,12 +11,16 @@ logsource:
 detection:
     selection:
       c-useragent:
-        - 'owasp' # which tool???
-        - 'nikto' # PR?
-        - 'badtunnel' #which tool???
-        - 'nmap' #PR?
-        - 'gobuster' #PR?
-        - 'SPOOFED' # OWASP-XSSER PR?
+        # which tool???
+        - 'owasp'
+        - 'nikto'
+        # which tool???
+        - 'badtunnel'
+        - 'nmap'
+        - 'gobuster'
+        # OWASP-XSSER
+        - 'SPOOFED'
+        # PR: nikto, nmap, gobuster, SPOOFED
     condition: selection
 fields:
     - ClientIP
