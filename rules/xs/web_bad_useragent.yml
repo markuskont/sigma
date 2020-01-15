@@ -1,0 +1,37 @@
+title: Malicious or Suspicious User-Agent String
+id: fbe637a0-250a-47a2-a1a4-aae77437049e
+description: Detects access to a webserver using well-known attack tools or scanners with default user-agent string
+author: Mauno Pihelgas
+date: 2020/01/14
+status: experimental
+references:
+    - https://github.com/ccdcoe/frankenstack
+logsource:
+    category: webserver
+detection:
+    selection:
+      c-useragent:
+        # which tool???
+        - 'owasp'
+        - 'nikto'
+        # which tool???
+        - 'badtunnel'
+        - 'nmap'
+        - 'gobuster'
+        # OWASP-XSSER
+        - 'SPOOFED'
+        # PR: nikto, nmap, gobuster, SPOOFED
+    condition: selection
+fields:
+    - ClientIP
+    - c-uri
+    - c-useragent
+falsepositives:
+    - Unknown
+tags:
+    - attack.t1190
+    - attack.t1063
+    - attack.t1046
+    - attack.initial_access
+    - attack.discovery
+level: high

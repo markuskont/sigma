@@ -1,0 +1,27 @@
+title: Missing User-Agent String
+id: 6441c598-1e52-4cde-810d-c76d38c79f06
+description: Detects access to a webserver with an empty user-agent string
+author: Mauno Pihelgas
+date: 2020/01/14
+status: experimental
+references:
+    - https://github.com/ccdcoe/frankenstack
+logsource:
+    category: webserver
+detection:
+    selection:
+        # Web server logs use "-" to denote missing UA. 
+        # Sigma guidelines suggest '' for empty value (used in another rule), but how is string matching done in our case?
+        c-useragent: '-'
+    condition: selection
+fields:
+    - ClientIP
+    - c-uri
+    - c-useragent
+falsepositives:
+    - Unknown
+tags:
+    
+    - attack.t1066
+    - attack.defense_evasion
+level: high
