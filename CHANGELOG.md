@@ -10,9 +10,41 @@ from version 0.14.0.
 
 ### Added
 
+* LOGIQ Backend (logiq)
+
+### Fixed
+
+* Splunx XML rule name is now set to rule title
+
+## 0.16.0 - 2020-02-25
+
+### Added
+
 * Proxy field names to ECS mapping (ecs-proxy) configuration
 * False positives metadata to LimaCharlie backend
 * Additional aggregation capabilitied for es-dsl backend.
+* Azure log analytics rule backend (ala-rule)
+* SQL backend
+* Splunk Zeek sourcetype mapping config
+* sigma2attack script
+* Carbon Black backend and configuration
+* ArcSight ESM backend
+* Elasticsearch detection rule backend
+
+### Changed
+
+* Kibana object id is now Sigma rule id if available. Else
+  the old naming scheme is used.
+* sigma2misp: replacement of deprecated method usage.
+* Various configuration updates
+* Extended ArcSight mapping
+
+### Fixed
+
+* Fixed aggregation queries for Elastalert backend
+* Fixed aggregation queries for es-dsl backend
+* Backend and configuration lists are sorted.
+* Escaping in ala backend
 
 ## 0.15.0 - 2019-12-06
 
@@ -61,7 +93,7 @@ from version 0.14.0.
 ### Added
 
 * Index mappings for Sumologic
-* Malicious cmdlets in wdatp
+* Malicious cmdlets in mdatp
 * QRadar support for keyword searches
 * QRadar mapping improvements
 * QRadar field selection
